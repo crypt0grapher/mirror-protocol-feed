@@ -27,8 +27,8 @@ async function indexPage(req: Request, res: Response) {
                     stdDev: {$stdDevPop: '$premium'}
                 }
             }]).limit(1);
-        let meanPremium = statQuery ? statQuery[0].meanPremium : 0;
-        let stdDev = statQuery ? statQuery[0].stdDev : 0;
+        let meanPremium = (statQuery && statQuery[0])? statQuery[0].meanPremium : 0;
+        let stdDev = (statQuery && statQuery[0])? statQuery[0].stdDev : 0;
 
         let DBRowForAsset = await Price.find({mAsset: asset}).sort({'_id': -1}).limit(1);
         let OutputLineForAsset = {
