@@ -1,9 +1,10 @@
 import express from 'express';
 import * as bodyParser from 'body-parser';
 import IndexRouter from './routes/host';
-import PriceRouter from './routes/host/price';
+import PriceRouter from './routes/host/export';
 import AppKeys from './config/keys';
 import mongoose from 'mongoose';
+import AssetRouter from './routes/host/asset';
 
 class TSNodeHostApp{
   constructor(){
@@ -26,6 +27,7 @@ class TSNodeHostApp{
   private routeConfig(): void {
     this.hostApp.use(IndexRouter);
     this.hostApp.use("/prices", PriceRouter);
+    this.hostApp.use("/asset", AssetRouter);
   }
 
   private mongoDBSetup() : void{
@@ -42,6 +44,7 @@ class TSNodeHostApp{
 
   private staticFilesSetup(){
     this.hostApp.use(express.static('public'));
+    this.hostApp.locals.basedir =  '/public';
   }
 
 }
