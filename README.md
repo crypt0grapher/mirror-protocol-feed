@@ -7,6 +7,12 @@
 - Chart: **TimeChart**
 - Terra.js, Mirror.js
 
+### Architecture
+The bundle basically consists of two Express.js apps running on Node.js: the API and the Host.
+- **API** is a server polling Mirror protocol every 60 seconds and saving the feed to MongoDB database, extracts the data on request and generates HTML pages with Pug templates.
+- **Host** is a simple HTML/TS application with Bootstrap v5 serving a minimal UI and user interaction.
+
+### Using chart interface
 With touch screen:
 * 1 finger to pan
 * 2 or more finger to pan and zoom
