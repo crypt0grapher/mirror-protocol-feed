@@ -31,14 +31,16 @@ async function indexPage(req: Request, res: Response) {
         let stdDev = (statQuery && statQuery[0])? statQuery[0].stdDev : 0;
 
         let DBRowForAsset = await Price.find({mAsset: asset}).sort({'_id': -1}).limit(1);
-        let OutputLineForAsset = {
-            mAsset: DBRowForAsset[0].mAsset,
-            priceUST: DBRowForAsset[0].priceUST,
-            oraclePriceUST: DBRowForAsset[0].oraclePriceUST,
-            premium: DBRowForAsset[0].premium,
-            meanPremium: meanPremium,
-            sd: stdDev};
-        contextData.prices.push(OutputLineForAsset);
+        if (DBRowForAsset && DBRowForAsset[0]) {
+            let OutputLineForAsset = {
+                mAsset: DBRowForAsset[0].mAsset,
+                priceUST: DBRowForAsset[0].priceUST,
+                oraclePriceUST: DBRowForAsset[0].oraclePriceUST,
+                premium: DBRowForAsset[0].premium,
+                meanPremium: meanPremium,
+                sd: stdDev};
+            contextData.prices.push(OutputLineForAsset);
+        }
     }
 
     res.render('index/home.pug', contextData)
