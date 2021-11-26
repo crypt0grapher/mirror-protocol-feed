@@ -1,7 +1,6 @@
 extends ../layouts/layout.pug
 
 block content
-  <h3>#{message}</h3>
   <script src="https://cdn.jsdelivr.net/npm/d3-array@3"></script>
   <script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
   <script src="https://cdn.jsdelivr.net/npm/d3-format@3"></script>
@@ -14,7 +13,15 @@ block content
 
   <script src="/js/timechart.min.js"></script>
 
-  div#chart(style={
+  <ul class="nav nav-tabs">
+  <li class="nav-item">
+  <a class="nav-link active" aria-current="page">#{asset} Premium</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link" href="/asset/#{asset}/price">#{asset} Price</a>
+  </li>
+  </ul>
+  div#chartPremium(style={
       "width": "100%",
       "height": "640px",
       "max-height": "90vh"
@@ -24,22 +31,18 @@ block content
     main();
 
     function main() {
-        const el = document.getElementById('chart');
-        const dataSin = [];
-        const dataCos = [];
+        const el = document.getElementById('chartPremium');
         const chart = new TimeChart(el, {
-            // debugWebGL: true,
-            // forceWebGL1: true,
             baseTime: !{baseTime},
             series: [{
-                    name: !{assetName},
-                    data: !{dataColumns},
+                    name: `#{asset}`,
+                    data: !{dataColumn1},
                     lineWidth: 2,
                     color: 'red'
                     },
                     {
                         name: 'Mean',
-                        data: !{dataColumnsMean},
+                        data: !{dataColumn2},
                         lineWidth: 2,
                         color: 'blue',
                     },
