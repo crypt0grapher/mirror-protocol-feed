@@ -1,7 +1,6 @@
 extends ../layouts/layout.pug
 
 block content
-  <h3>#{message}</h3>
   <script src="https://cdn.jsdelivr.net/npm/d3-array@3"></script>
   <script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
   <script src="https://cdn.jsdelivr.net/npm/d3-format@3"></script>
@@ -14,7 +13,15 @@ block content
 
   <script src="/js/timechart.min.js"></script>
 
-  div#chart(style={
+  <ul class="nav nav-tabs">
+  <li class="nav-item">
+  <a class="nav-link active" aria-current="page" href="/asset/#{asset}/premium">#{asset} Premium</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link active" href="#">#{asset} Price</a>
+  </li>
+  </ul>
+  div#chartPremium(style={
       "width": "100%",
       "height": "640px",
       "max-height": "90vh"
@@ -24,7 +31,7 @@ block content
     main();
 
     function main() {
-        const el = document.getElementById('chart');
+        const el = document.getElementById('chartPremium');
         const dataSin = [];
         const dataCos = [];
         const chart = new TimeChart(el, {
@@ -32,38 +39,17 @@ block content
             // forceWebGL1: true,
             baseTime: !{baseTime},
             series: [{
-                    name: !{assetName},
-                    data: !{dataColumns},
+                    name: "TerraSwap price",
+                    data: !{dataColumn1},
                     lineWidth: 2,
                     color: 'red'
                     },
                     {
-                        name: 'Mean',
-                        data: !{dataColumnsMean},
+                        name: "Oracle price",
+                        data: !{dataColumn2},
                         lineWidth: 2,
                         color: 'blue',
-                    },
-                    {
-                        name: '1 SD from mean',
-                        data: !{dataColumnsExtremum1},
-                        lineWidth: 5,
-                        visible: false,
-                        color: 'yellowgreen',
-                    },
-                    {
-                        name: '2 SD from mean',
-                        data: !{dataColumnsExtremum2},
-                        lineWidth: 5,
-                        visible: false,
-                        color: 'orange',
-                    },
-                    {
-                        name: '3 SD from mean',
-                        data: !{dataColumnsExtremum3},
-                        lineWidth: 5,
-                        visible: false,
-                        color: 'gold',
-                    },
+                    }
                     ],
             xRange: "auto",
             // realTime: true,

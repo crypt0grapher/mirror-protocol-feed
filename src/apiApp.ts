@@ -33,7 +33,7 @@ class TSNodeApiApp{
 
   private mongoDBSetup() : void{
     let MongoConnectionOptions = {};
-    if (process.env.mongoDBauthSource)
+    if (process.env.mongoDBauth == 'yes')
       MongoConnectionOptions = {
         "user": process.env.mongoDBUser,
         "pass": process.env.mongoDBPassword,
