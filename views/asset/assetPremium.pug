@@ -15,7 +15,7 @@ block content
 
   <ul class="nav nav-tabs">
   <li class="nav-item">
-  <a class="nav-link active" aria-current="page" href="#">#{asset} Premium</a>
+  <a class="nav-link active" aria-current="page">#{asset} Premium</a>
   </li>
   <li class="nav-item">
   <a class="nav-link" href="/asset/#{asset}/price">#{asset} Price</a>
@@ -32,11 +32,7 @@ block content
 
     function main() {
         const el = document.getElementById('chartPremium');
-        const dataSin = [];
-        const dataCos = [];
         const chart = new TimeChart(el, {
-            // debugWebGL: true,
-            // forceWebGL1: true,
             baseTime: !{baseTime},
             series: [{
                     name: `#{asset}`,
