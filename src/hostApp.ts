@@ -31,7 +31,14 @@ class TSNodeHostApp{
   }
 
   private mongoDBSetup() : void{
-    mongoose.connect(this.mongoURL,
+    let MongoConnectionOptions = {};
+    if (process.env.mongoDBauth == 'yes')
+      MongoConnectionOptions = {
+        "user": process.env.mongoDBUser,
+        "pass": process.env.mongoDBPassword,
+        "authSource": process.env.mongoDBauthSource
+      }
+    mongoose.connect(this.mongoURL, MongoConnectionOptions,
       (err) => {
         if (err){
           console.error("DB Error" , err);
