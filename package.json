@@ -28,7 +28,7 @@
   "scripts": {
     "watch-ts": "tsc -w",
     "watch-js": "nodemon ./dist/server.js",
-    "build": "tsc",
+    "build": "tsc && cp ./dist/api/*.js ./public/js/",
     "start-app": "yarn watch-ts && yarn watch-js",
     "dev": "ts-node ./src/server.ts",
     "start": "node ./dist/server.js",
