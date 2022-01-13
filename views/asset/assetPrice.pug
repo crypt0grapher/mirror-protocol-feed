@@ -28,6 +28,8 @@ block content
       })
 
   script(type='text/javascript').
+    // var tooltipWithDate = import('/js/tooltip.js');
+
     main();
 
     function main() {
@@ -60,7 +62,9 @@ block content
                 }
             },
             tooltip: true,
-            tooltipXLabel: "Time, ms"
+            tooltipXLabel: "Time"
+            //, plugins: { tooltipWithDate }
         });
+
         let x = !{baseTime};
     }
