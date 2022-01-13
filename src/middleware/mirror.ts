@@ -1,6 +1,6 @@
-import {Mirror, TerraswapPair, Asset, Token} from '@mirror-protocol/mirror.js';
+import {Mirror, TerraswapPair} from '@mirror-protocol/mirror.js';
 import {Price} from '../models/Price'
-import {LCDClient, Coin} from '@terra-money/terra.js';
+import {LCDClient} from '@terra-money/terra.js';
 
 export class MirrorPricesFeed {
     private mirror: Mirror;
@@ -46,7 +46,7 @@ export class MirrorPricesFeed {
             ubLunaSwapPrice.mAsset = this.uLunabLunaSymbol;
             ubLunaSwapPrice.priceUST = 1;
             ubLunaSwapPrice.oraclePriceUST = 1;
-            ubLunaSwapPrice.premium = 1 - Number(uLunabLunaSwapRate.return_amount) / 1000000.0;
+            ubLunaSwapPrice.premium = Number(uLunabLunaSwapRate.return_amount) / 1000000.0;
             await ubLunaSwapPrice.save();
 
             for (const [symbol] of Object.entries(this.mirror.assets)) {
