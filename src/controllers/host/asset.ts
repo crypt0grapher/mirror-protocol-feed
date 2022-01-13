@@ -1,8 +1,5 @@
 import {Request, Response} from 'express';
-import pug from 'pug';
 import {Price} from '../../models/Price';
-import PriceModelInterface from '../../interface/price';
-import moment from 'moment';
 import {mirrorObject} from '../../middleware/mirror';
 
 async function AssetChart(req: Request, res: Response) {
