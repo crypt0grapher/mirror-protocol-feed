@@ -1,13 +1,17 @@
 ## Mirror Protocol Price Feed
-- Backend - Express (written in **TypeScript**)
+### APp
+The app provides info on MAssets over time from [Mirror Protocol](https://mirrorprotocol.app/) on [Terra blockchain ](https://terra.money/).
+[It shows](https://mirror.planeta.money/) the premium, mean, and standard deviation, and also charts for premium and prices for mAsset vs real Asset price, which provides arbitrage opportunities for traders.
+bLuna price is also collected, "premium" is a simulation response of 1 minus how many bLuna can be bought for 1 uluna.  
+
+### Frameworks
+- Backend - Express 
 - Frontend - **Pug** Templating Engine
 - Database - MongoDB + Mongoose (ORM)
 - FrontendDesign - Zurb Foundation
 - CSV Libs - **JSON2CSV**
-- Chart: **TimeChart**
+- Chart: **[TimeChart](https://github.com/huww98/TimeChart)**
 - Terra.js, Mirror.js
-
-Check it out live at [http://46.148.238.135:5000/](http://46.148.238.135:5000/).
 
 ### Architecture
 The bundle basically consists of two Express.js apps running on Node.js: the API and the Host.
