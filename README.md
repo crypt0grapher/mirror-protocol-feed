@@ -1,8 +1,11 @@
 ## Mirror Protocol Price Feed
-### APp
-The app provides info on MAssets over time from [Mirror Protocol](https://mirrorprotocol.app/) on [Terra blockchain ](https://terra.money/).
-[It shows](https://mirror.planeta.money/) the premium, mean, and standard deviation, and also charts for premium and prices for mAsset vs real Asset price, which provides arbitrage opportunities for traders.
-bLuna price is also collected, "premium" is a simulation response of 1 minus how many bLuna can be bought for 1 uluna.  
+### App
+The app provides info on MAssets over time from [Mirror Protocol](https://mirrorprotocol.app/) on [Terra blockchain ](https://terra.money/) aiming to assist traders with possible arbitrage opportunities.
+
+### Overview
+[It shows](https://mirror.planeta.money/):
+- Traders' premium for MAssets as _1 - *Real (Oracle) Price*/*MirrorPrice*, and some stats: mean, standard deviation, and charts.
+- bLuna price is also collected, "premium" is a simulation response of 1 minus how many bLuna can be bought for 1 uluna.  
 
 ### Frameworks
 - Backend - Express 
