@@ -1,7 +1,7 @@
-import {Router, Request, Response} from 'express';
+import {Router} from 'express';
 import MongoPriceController from '../../controllers/api/price'
 
-let mongoPriceRouter: Router = Router();
+const mongoPriceRouter: Router = Router();
 
 mongoPriceRouter.get("/", MongoPriceController.showAllPrices)
 mongoPriceRouter.get("/:id", MongoPriceController.getSinglePrice)
