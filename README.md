@@ -2,6 +2,8 @@
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcrypt0grapher%2FmirrorProtocolFeed.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fcrypt0grapher%2FmirrorProtocolFeed?ref=badge_shield)
 ### App
 The app provides info on MAssets over time from [Mirror Protocol](https://mirrorprotocol.app/) on [Terra blockchain ](https://terra.money/) aiming to assist traders with possible arbitrage opportunities.
+The prices of an Asset recieved from Oracle and its Mirrored MAsset counterpart are aimed to be equal, but they are not exactly the same. This difference which can be quite significant forms a traders' premium. 
+This tool monitors the premiums and provides a minimal statistical analysis.
 
 ### Overview
 [It shows](https://mirror.planeta.money/):
