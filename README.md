@@ -1,12 +1,13 @@
 ## Mirror Protocol Price Feed
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcrypt0grapher%2FmirrorProtocolFeed.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fcrypt0grapher%2FmirrorProtocolFeed?ref=badge_shield)
+
 ### App
 The app provides info on MAssets over time from [Mirror Protocol](https://mirrorprotocol.app/) on [Terra blockchain ](https://terra.money/) aiming to assist traders with possible arbitrage opportunities.
 The prices of an Asset recieved from Oracle and its Mirrored MAsset counterpart are aimed to be equal, but they are not exactly the same. This difference which can be quite significant forms a traders' premium. 
 This tool monitors the premiums and provides a minimal statistical analysis.
 
 ### Overview
-[It shows](https://mirror.planeta.money/):
+Over the most recent 10K records [the app shows](https://mirror.planeta.money/):
 - Traders' premium for MAssets as _1 - *Real (Oracle) Price*/*MirrorPrice*, and some stats: mean, standard deviation, and charts.
 - bLuna price is also collected, "premium" is a simulation response of 1 minus how many bLuna can be bought for 1 uluna.  
 
@@ -29,6 +30,7 @@ The bundle basically consists of two Express.js apps running on Node.js: the API
 - Install the bundle with `yarn` (or `npm install`).
 - Make sure you got MongoDB instance running.
 - Create `.env` file from `.env.example`. Just renaming the file will suffice.
+- Run with `yarn start dev` for testing.
 - Enjoy, [http://localhost:3000](http://localhost:3000) by default.
 
 ### Using chart interface

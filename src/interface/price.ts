@@ -1,12 +1,12 @@
 import {Document} from 'mongoose';
-interface Price{
-  mAsset: String,
-  priceUST: Number,
-  oraclePriceUST: Number,
-  premium : Number,
+export interface PriceItem{
+  mAsset: string,
+  priceUST: number,
+  oraclePriceUST: number,
+  premium : number,
   created_at : Date,
 }
 
-interface PriceModelInterface extends Price, Document {}
+interface PriceModelInterface extends PriceItem, Document {}
 export default PriceModelInterface
 
