@@ -14,13 +14,11 @@ class TSNodeApiApp{
     this.routeConfig();
     this.mongoDBSetup();
     this.mirrorFeed = new MirrorPricesFeed();
-    this.terraPollSetup();
+    this.terraPollSetup().then(r => r);
   }
 
   public apiApp : express.Application;
-  // public mongoURL : string = AppKeys.mongoDBURL
   public mongoURL : string = AppKeys.mongoDBURL
-  // public mongoURL : string = AppKeys.mongoDBDockerURL
 
   private bodyParserConfig(): void {
     this.apiApp.use(bodyParser.json());

@@ -13,7 +13,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [16.x]
@@ -26,5 +25,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install -g yarn
       - run: yarn set version berry
+      - run: yarn set version 2.4.2
       - run: yarn install --frozen-lockfile
       - run: yarn run build

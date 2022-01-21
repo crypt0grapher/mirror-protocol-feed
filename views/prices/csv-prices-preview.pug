@@ -1,27 +1,27 @@
 extends ../layouts/layout.pug
 
 block content
-    div(class="grid-x")
-        div(class="medium-8 medium-offset-2")
-            h3 #{msg}
-            table(class="hover" style="margin-top:36px;")
-                thead
-                    tr
-                        th mAsset
-                        th priceUST
-                        th priceUST
-                        th oraclePriceUST
-                        th premium
-                        th created_at
-                tbody
-                    each price in prices
-                        tr
-                            td #{price["mAsset"]}
-                            td #{price["priceUST"]}
-                            td #{price["oraclePriceUST"]}
-                            td #{price["premium"]}
-                            td #{price["created_at"]}
-                    form(action="/contacts/multiple/csv" method="post")
-                        input(type="hidden" value="#{JSON.stringify(prices)}" name="csvContacts")
-                        button(type="submit" class="button success") Confirm
-                        a(class="button secondary" href="/contacts" style="margin-left:20px") Cancel
+  .grid-x
+    .medium-8.medium-offset-2
+      h3 #{msg}
+      table(class='hover' style='margin-top:36px;')
+        thead
+          tr
+            th mAsset
+            th priceUST
+            th priceUST
+            th oraclePriceUST
+            th premium
+            th created_at
+        tbody
+            each price in prices
+              tr
+                td #{price['mAsset']}
+                td #{price['priceUST']}
+                td #{price['oraclePriceUST']}
+                td #{price['premium']}
+                td #{price['created_at']}
+          form(action='/contacts/multiple/csv' method='post')
+            input(type='hidden' value='#{JSON.stringify(prices)}' name='csvContacts')
+            button(type='submit' class='button success') Confirm
+            a(class='button secondary' href='/contacts' style='margin-left:20px') Cancel
