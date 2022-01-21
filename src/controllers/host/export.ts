@@ -1,22 +1,37 @@
 import {Request, Response} from 'express';
-import {Price} from '../../models/Price';
 import moment from 'moment';
 import {parseAsync} from 'json2csv';
+import {Price} from '../../models/Price';
 import {mirrorObject} from '../../middleware/mirror';
+import {PriceItem} from '../../interface/price';
+
+interface GenericReply {
+    msg: string;
+    assets: Array<string>;
+    activePageExport?: 'active';
+}
+
+interface PricesReply extends GenericReply {
+    prices: null | Array<PriceItem>;
+}
+
+interface PriceReply extends GenericReply {
+    price: null | PriceItem;
+}
 
 async function getAllPrices(req: Request, res: Response) {
-    const priceFindOptions: any = {};
-    const contextData: any = {
+    const contextData: PricesReply = {
         msg: 'No Prices Found',
         assets: mirrorObject.assetSymbols(),
         activePageExport: 'active',
         prices: null
     };
     try {
-        contextData.prices = await Price.find(priceFindOptions).sort({ _id: -1 }).limit(100000);
+        contextData.prices = await Price.find({}).sort({ _id: -1 }).limit(100000);
         contextData.msg = 'Collected Price Feed From DB';
-    } catch (error) {
-        contextData.msg = error;
+    } catch (error: unknown) {
+        if (error instanceof Error)
+            contextData.msg = error.message;
     }
     return res.render('prices/prices.pug', contextData)
 }
@@ -24,29 +39,29 @@ async function getAllPrices(req: Request, res: Response) {
 
 async function getPriceById(req: Request, res: Response) {
     const priceId: string = req.params.id;
-    const contextData: any = {
+    const contextData: PriceReply = {
         msg: 'No Price Found',
         assets: mirrorObject.assetSymbols(),
         price: null
     }
     try {
-        contextData.data = await Price.findById(priceId);
+        contextData.price = await Price.findById(priceId);
         contextData.msg = 'Price Found'
     } catch (error) {
-        contextData.msg = error;
+        if (error instanceof Error)
+            contextData.msg = error.message;
     }
     return res.render('prices/price-details.pug', contextData);
 }
 
 async function sendAllPricesCSV(req: Request, res: Response) {
-    const priceFindOptions: any = {};
-    const contextData: any = {
+    const contextData: PricesReply = {
         msg: 'No Prices Found',
         assets: mirrorObject.assetSymbols(),
         prices: null
     }
     try {
-        const prices = await Price.find(priceFindOptions);
+        const prices = await Price.find({});
         const priceFieldLabels = [
             {label: 'mAsset', value: 'mAsset'},
             {label: 'priceUST', value: 'priceUST'},
@@ -65,16 +80,17 @@ async function sendAllPricesCSV(req: Request, res: Response) {
         res.attachment(fileName);
         return res.send(csvData);
     } catch (error) {
-        contextData.msg = error;
+        if (error instanceof Error)
+            contextData.msg = error.message;
     }
     return res.render('prices/prices.pug', contextData)
 }
 
 
-const ControllerMethods: any = {
+const PricesController  = {
     showAllPrices: getAllPrices,
     getSinglePrice: getPriceById,
     sendAllCSV: sendAllPricesCSV
 }
 
-export default ControllerMethods;
+export default PricesController;
