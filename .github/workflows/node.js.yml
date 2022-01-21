@@ -25,6 +25,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install -g yarn
       - run: yarn set version berry
-      - run: yarn set version 2.4.2
-      - run: yarn install --immutable
+      - run: yarn set version stable
+      - run: yarn install
       - run: yarn run build

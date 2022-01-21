@@ -12,9 +12,9 @@ Over the most recent 10K records [the app shows](https://mirror.planeta.money/):
 - bLuna price is also collected, "premium" is a simulation response of 1 minus how many bLuna can be bought for 1 uluna: <img src="https://latex.codecogs.com/svg.latex?bLuna Premium=1-\frac{bLUNA(TSPool)}{LUNA(TSPool)}"/>  
 
 ### Frameworks
-- Backend - [Express](https://expressjs.com/) .
+- Backend - [Express](https://expressjs.com/).
 - Frontend - [Pug](https://pugjs.org/) with [Bootstrap](https://getbootstrap.com/).
-- Database - [MongoDB](https://mongodb.com/) with Mongoose.
+- Database - [MongoDB](https://mongodb.com/) with [Mongoose](https://mongoosejs.com/).
 - CSV download - [json2csv](https://www.npmjs.com/package/json2csv).
 - Chart -  [TimeChart](https://github.com/huww98/TimeChart).
 - Blockchain - [Terra.js](https://terra-money.github.io/terra.js/), [Mirror.js](https://mirror-protocol.github.io/mirror.js/).
@@ -29,8 +29,10 @@ The monorepo basically consists of two Express.js apps running on the single Nod
 - Install the bundle with `yarn` (or `npm install`).
 - Make sure you got MongoDB instance running.
 - Create `.env` file from `.env.example`. Just renaming the file will suffice.
+- Check Mongo config in `src/config/keys.ts`.
 - Run with `yarn start dev` for testing.
 - Enjoy, [http://localhost:3000](http://localhost:3000) by default.
+- Production: `yarn production` builds and runs the server. Make use of Dockerfile for containerized deployment or `pm2 start ./dist/server.js` if you prefer to manage Node.js apps with pm2.  
 
 ### Using chart interface
 With touch screen:
