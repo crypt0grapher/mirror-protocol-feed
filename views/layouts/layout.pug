@@ -11,6 +11,11 @@ html(lang="en")
     include ../partials/navbar
     div(style='padding : 40px')
       block content
+    .container
+      footer.d-flex.flex-wrap.justify-content-between.align-items-center.py-3.my-4.border-top
+        p.col-md-12.mb-0.text-center.text-muted Made by crypt0grapher,
+        p.col-md-12.mb-0.text-center.text-muted
+          a(href='https://github.com/crypt0grapher/mirrorProtocolFeed') free and opensource
 script.
     const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
