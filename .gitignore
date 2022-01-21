@@ -82,7 +82,6 @@ typings/
 
 # dotenv environment variables file
 .env
-.env.test
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -92,7 +91,6 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
-dist
 
 # Gatsby files
 .cache/
@@ -120,6 +118,3 @@ dist
 
 # System-specific
 .DS_Store
-/yarn.lock
-!/.env
-!/.env.local
