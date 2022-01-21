@@ -3,7 +3,7 @@ import {Price} from '../../models/Price';
 import {mirrorObject} from '../../middleware/mirror';
 
 async function indexPage(req: Request, res: Response) {
-    let priceFindOptions: any = {};
+
 
     let contextData: any = {
         msg: 'Dashboard',

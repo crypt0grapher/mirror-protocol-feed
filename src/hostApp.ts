@@ -17,7 +17,6 @@ class TSNodeHostApp{
 
   public hostApp : express.Application;
   public mongoURL : string = AppKeys.mongoDBURL
-  // public mongoURL : string = AppKeys.mongoDBDockerURL
 
   private bodyParserConfig(): void {
     this.hostApp.use(bodyParser.json());

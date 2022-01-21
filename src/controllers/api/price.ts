@@ -11,7 +11,7 @@ async function getAllPrices(req: Request, res: Response) {
     let httpStatus = 200;
 
     try {
-        jsonResp.data = await Price.find(priceFindOptions).limit(10000);
+        jsonResp.data = await Price.find(priceFindOptions).limit(100000);
         jsonResp.success = true;
     } catch (error) {
         jsonResp.msg = error;

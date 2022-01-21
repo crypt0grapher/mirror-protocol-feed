@@ -1,43 +1,27 @@
 extends ../layouts/layout.pug
 block content
-  <div class=class="container-fluid">
-    <div>
-      <h3>#{msg}</h3>
-      <p>
-        <a href="/prices/csv" type="button" class="btn btn-primary" role="button">Export All Prices</a>
-      </p>
-    </div>
-  <div id="assets">
-    <input class="search" placeholder="Search asset" />
-    <button class="sort btn btn-secondary btn-sm" data-sort="asset">Sort by asset</button>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Asset</th>
-          <th scope="col">Terraswap Price, UST</th>
-          <th scope="col">Oracle ("Real") Price, UST</th>
-          <th scope="col">Premium</th>
-          <th scope="col">Timestamp</th>
-        </tr>
-      </thead>
-      <tbody>
-      <tbody class="list">
-        each value in prices
-          <tr>
-            <td class="asset">#{value.mAsset}</td>
-            <td>#{value.priceUST}</td>
-            <td>#{value.oraclePriceUST}</td>
-            <td class="premium">#{value.premium}</td>
-            <td>#{value.created_at}</td>
-          </tr>
-      </tbody>
-    </table>
-  </div>
-  </div>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-  script.
-    var options = {
-      valueNames: [ 'asset', 'premium' ]
-    };
-    var assetList = new List('assets', options);
-
+  .container-fluid
+    div
+      h3 #{msg}
+      p
+        a.btn.btn-primary(href='/prices/csv' type='button' role='button') Export All Prices
+    #assets
+      input.search(placeholder='Search asset')
+      button.sort.btn.btn-secondary.btn-sm(data-sort='asset') Sort by asset
+      table.table
+        thead
+          tr
+            th(scope='col') Asset
+            th(scope='col') Terraswap Price, UST
+            th(scope='col') Oracle (&quot;Real&quot;) Price, UST
+            th(scope='col') Premium
+            th(scope='col') Timestamp
+        tbody
+          tbody.list
+              each value in prices
+                tr
+                  td.asset #{value.mAsset}
+                  td #{value.priceUST}
+                  td #{value.oraclePriceUST}
+                  td.premium #{value.premium}
+                  td #{value.created_at}

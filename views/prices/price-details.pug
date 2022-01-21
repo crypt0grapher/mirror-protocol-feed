@@ -2,55 +2,37 @@ extends ../layouts/layout.pug
 
 block content
   if (price)
-    <div class='medium-12'>
-      <div class='grid-x'>
-        <div class='cell medium-4'>
-          <div class='grid-x'>
-            <div class='cell medium-9'>
-              <h3 style="padding-left:10px; margin-bottom:20px">#{msg}</h3>
-            </div>
-            <div class='cell medium-3'>
-              <a type='button' href="/prices/csv/#{price.id}" class='button info expanded'>Export</a>
-            </div>
-          </div>
-        </div>
-        <div class='cell medium-8'>
-          <h3 class='medium-offset-3'>Edit price Info </h3>
-        </div>
-      </div>
-    </div>
-    <div class="grid-x">
-      <div class="cell medium-4 large-4" style='padding-left: 10px'>
-        <div class="card">
-          <div class="card-divider">
-            <h3>#{price.mAsset}</h3>
-          </div>
-          <div class="card-divider">
-            <h4> Details </h4>
-          </div>
-          <div class="card-section">
-          <p>Mirror price UST: #{price.priceUST}</p>
-          <p>Real (Oracle) price UST: #{price.oraclePriceUST}</p>
-          </div>
-          <div class='card-section'>
-            <p> <strong> Price Timestamp </strong> </p>
-            <p> #{price.created_at}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    .medium-12
+      .grid-x
+        .cell.medium-4
+          .grid-x
+            .cell.medium-9
+              h3(style='padding-left:10px; margin-bottom:20px') #{msg}
+            .cell.medium-3
+              a.button.info.expanded(type='button' href='/prices/csv/#{price.id}') Export
+        .cell.medium-8
+          h3.medium-offset-3 Edit price Info
+    .grid-x
+      .cell.medium-4.large-4(style='padding-left: 10px')
+        .card
+          .card-divider
+            h3 #{price.mAsset}
+          .card-divider
+            h4  Details
+          .card-section
+            p Mirror price UST: #{price.priceUST}
+            p Real (Oracle) price UST: #{price.oraclePriceUST}
+          .card-section
+            p
+              strong  Price Timestamp
+            p  #{price.created_at}
   else
-    <div class='medium-12'>
-      <div class='grid-x'>
-        <div class='cell medium-6'>
-          <div class='grid-x'>
-            <div class='cell medium-12'>
-              <h3 style="padding-left:10px; margin-bottom:20px">#{msg}</h3>
-            </div>
-          </div>
-        </div>
-        <div class='cell medium-12'>
-          <p style="padding-left:10px; margin-bottom:20px; margin-top:40px"> Simply Said, <br/> You gave the <strong>wrong ID</strong> genius</p>
-        </div>
-      </div>
-    </div>
+.medium-12
+  .grid-x
+    .cell.medium-6
+      .grid-x
+        .cell.medium-12
+          h3(style='padding-left:10px; margin-bottom:20px') #{msg}
+    .cell.medium-12
+      p(style='padding-left:10px; margin-bottom:20px; margin-top:40px')
+        | Wrong ID
