@@ -12,16 +12,15 @@ Over the most recent 10K records [the app shows](https://mirror.planeta.money/):
 - bLuna price is also collected, "premium" is a simulation response of 1 minus how many bLuna can be bought for 1 uluna.  
 
 ### Frameworks
-- Backend - Express 
-- Frontend - **Pug** Templating Engine
-- Database - MongoDB + Mongoose (ORM)
-- FrontendDesign - Zurb Foundation
-- CSV Libs - **JSON2CSV**
-- Chart: **[TimeChart](https://github.com/huww98/TimeChart)**
-- Terra.js, Mirror.js
+- Backend - [Express](https://expressjs.com/) .
+- Frontend - [Pug](https://pugjs.org/) with [Bootstrap](https://getbootstrap.com/).
+- Database - [MongoDB](https://mongodb.com/) with Mongoose.
+- CSV Libs - [json2csv](https://www.npmjs.com/package/json2csv).
+- Chart -  [TimeChart](https://github.com/huww98/TimeChart).
+- Blockchain - [Terra.js](https://terra-money.github.io/terra.js/), [Mirror.js](https://mirror-protocol.github.io/mirror.js/).
 
 ### Architecture
-The bundle basically consists of two Express.js apps running on Node.js: the API and the Host.
+The bundle basically consists of two Express.js apps running on the single Node.js instance: the API (serving at port 4000 by default) and the Host (default port 3000).
 - **API** is a server polling Mirror protocol every 60 seconds and saving the feed to MongoDB database, extracts the data on request and generates HTML pages with Pug templates.
 - **Host** is a simple HTML/TS application with Bootstrap v5 serving a minimal UI and user interaction.
 
