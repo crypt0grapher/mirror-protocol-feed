@@ -1,38 +1,27 @@
 extends ../layouts/layout.pug
 
 block content
-  <div class='grid-x'>
-
-    <div class='medium-8 medium-offset-2'>
-      <h3> #{msg} </h3>
-      <table class='hover' style="margin-top:36px;">
-        <thead>
-          <tr>
-            <th> mAsset </th>
-            <th> priceUST </th>
-            <th> oraclePriceUST </th>
-            <th> premium </th>
-            <th> created_at </th>
-          </tr>
-        </thead>
-        <tbody>
-          each price in prices
-            <tr>
-              <td> #{price['mAsset']} </td>
-              <td> #{price['priceUST']} </td>
-              <td> #{price['oraclePriceUST']} </td>
-              <td> #{price['premium']} </td>
-              <td> #{price['created_at']} </td>
-            </tr>
-
-          <form action="/contacts/multiple/csv" method="post">
-            <input type="hidden" value="#{JSON.stringify(prices)}" name='csvContacts'/>
-            <button type="submit" class='button success '>Confirm</button>
-            <a class='button secondary' href="/contacts" style="margin-left:20px'">Cancel </a>
-          </form>
-        </tbody>
-
-      </table>
-
-    </div>
-  </div>
+    div(class="grid-x")
+        div(class="medium-8 medium-offset-2")
+            h3 #{msg}
+            table(class="hover" style="margin-top:36px;")
+                thead
+                    tr
+                        th mAsset
+                        th priceUST
+                        th priceUST
+                        th oraclePriceUST
+                        th premium
+                        th created_at
+                tbody
+                    each price in prices
+                        tr
+                            td #{price["mAsset"]}
+                            td #{price["priceUST"]}
+                            td #{price["oraclePriceUST"]}
+                            td #{price["premium"]}
+                            td #{price["created_at"]}
+                    form(action="/contacts/multiple/csv" method="post")
+                        input(type="hidden" value="#{JSON.stringify(prices)}" name="csvContacts")
+                        button(type="submit" class="button success") Confirm
+                        a(class="button secondary" href="/contacts" style="margin-left:20px") Cancel
