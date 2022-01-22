@@ -1,5 +1,7 @@
 ## Mirror Protocol Price Feed
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcrypt0grapher%2FmirrorProtocolFeed.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fcrypt0grapher%2FmirrorProtocolFeed?ref=badge_shield)
+[![Node.js CI](https://github.com/crypt0grapher/mirror-protocol-feed/actions/workflows/node.js.yml/badge.svg)](https://github.com/crypt0grapher/mirror-protocol-feed/actions/workflows/node.js.yml)
+[![CodeQL](https://github.com/crypt0grapher/mirror-protocol-feed/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/crypt0grapher/mirror-protocol-feed/actions/workflows/codeql-analysis.yml)
 
 ### App
 The app provides info on MAssets over time from [Mirror Protocol](https://mirrorprotocol.app/) on [Terra blockchain ](https://terra.money/) aiming to assist traders with possible arbitrage opportunities.
