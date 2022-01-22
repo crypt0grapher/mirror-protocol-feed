@@ -20,8 +20,8 @@ block content
               each value in prices
                 tr
                   td.asset #{value.mAsset}
-                  td #{value.priceUST}
-                  td #{value.oraclePriceUST}
-                  td.premium #{value.premium}
-                  td.meanpremium #{value.meanPremium}
-                  td #{value.sd}
+                  td #{value.priceUST.toFixed(5)}
+                  td #{value.oraclePriceUST.toFixed(3)}
+                  td.premium #{value.premium.toFixed(5)}
+                  td.meanpremium #{value.meanPremium.toFixed(5)}
+                  td #{value.sd.toFixed(5)}
