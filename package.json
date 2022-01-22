@@ -54,9 +54,6 @@
     "pug": "^3.0.2",
     "timechart": "^0.5.2"
   },
-  "devDependencies": {
-    "typescript": "^4.5.5"
-  },
   "engines": {
     "node": ">=16.11.6"
   }
