@@ -11,8 +11,7 @@ This tool monitors the premiums and provides a minimal statistical analysis.
 ### Overview
 Over the most recent 10K records [the app shows](https://mirror.planeta.money/):
 - Traders' premium for MAssets as *1 - Real (Oracle) Price/MirrorPrice*, and some stats: mean, standard deviation, and charts. ![1 - Real (Oracle) Price/MirrorPrice](https://latex.codecogs.com/svg.latex?MAsset_Premium=1-\frac{OracleAssetPrice}{MirrorAssetPrice})
-- bLuna price is also collected, "premium" is a simulation response of 1 minus how many bLuna can be bought for 1 uluna:
-- ![bLunaPremium=1-\frac{bLUNA(TSPool)}{LUNA(TSPool)}](https://latex.codecogs.com/svg.latex?bLunaPremium=1-\frac{bLUNA(TSPool)}{LUNA(TSPool)})  
+- bLuna price is also collected, "premium" is a simulation response of 1 minus how many bLuna can be bought for 1 uluna: ![bLunaPremium=1-\frac{bLUNA(TSPool)}{LUNA(TSPool)}](https://latex.codecogs.com/svg.latex?bLunaPremium=1-\frac{bLUNA(TSPool)}{LUNA(TSPool)})  
 
 ### Frameworks
 - Backend - [Express](https://expressjs.com/).
