@@ -2,14 +2,15 @@
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcrypt0grapher%2FmirrorProtocolFeed.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fcrypt0grapher%2FmirrorProtocolFeed?ref=badge_shield)
 [![Node.js CI](https://github.com/crypt0grapher/mirror-protocol-feed/actions/workflows/node.js.yml/badge.svg)](https://github.com/crypt0grapher/mirror-protocol-feed/actions/workflows/node.js.yml)
 [![CodeQL](https://github.com/crypt0grapher/mirror-protocol-feed/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/crypt0grapher/mirror-protocol-feed/actions/workflows/codeql-analysis.yml)
+[![Deploy](https://github.com/crypt0grapher/mirror-protocol-feed/actions/workflows/deploy.yml/badge.svg)](https://github.com/crypt0grapher/mirror-protocol-feed/actions/workflows/deploy.yml)
 
 ### App
-The app provides info on MAssets over time from [Mirror Protocol](https://mirrorprotocol.app/) on [Terra blockchain ](https://terra.money/) aiming to assist traders with possible arbitrage opportunities.
-The prices of an Asset recieved from Oracle and its Mirrored MAsset counterpart are aimed to be equal, but they are not exactly the same. This difference which can be quite significant forms a traders' premium. 
+The app provides [info on MAssets over time](http://mirror.planeta.money/) which are [Mirror Protocol](https://mirrorprotocol.app/) assets on [Terra blockchain ](https://terra.money/) aiming to assist traders with possible arbitrage opportunities.
+The prices of an Asset received from Oracle and its Mirrored MAsset counterpart are aimed to be equal, but they are not exactly the same. This difference which can be quite significant forms a traders' premium. 
 This tool monitors the premiums and provides a minimal statistical analysis.
 
 ### Overview
-Over the most recent 10K records [the app shows](https://mirror.planeta.money/):
+Over the most recent 100K records the the app shows:
 - Traders' premium for MAssets as *1 - Real (Oracle) Price/MirrorPrice*, and some stats: mean, standard deviation, and charts. ![1 - Real (Oracle) Price/MirrorPrice](https://latex.codecogs.com/svg.latex?MAsset_Premium=1-\frac{OracleAssetPrice}{MirrorAssetPrice})
 - bLuna price is also collected, "premium" is a simulation response of 1 minus how many bLuna can be bought for 1 uluna: ![bLunaPremium=1-\frac{bLUNA(TSPool)}{LUNA(TSPool)}](https://latex.codecogs.com/svg.latex?bLunaPremium=1-\frac{bLUNA(TSPool)}{LUNA(TSPool)})  
 
