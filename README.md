@@ -10,7 +10,7 @@ The prices of an Asset received from Oracle and its Mirrored MAsset counterpart 
 This tool monitors the premiums and provides a minimal statistical analysis.
 
 ### Overview
-Over the most recent 100K records the the app shows:
+Over the most recent 100K records the app shows:
 - Traders' premium for MAssets as *1 - Real (Oracle) Price/MirrorPrice*, and some stats: mean, standard deviation, and charts. ![1 - Real (Oracle) Price/MirrorPrice](https://latex.codecogs.com/svg.latex?MAsset_Premium=1-\frac{OracleAssetPrice}{MirrorAssetPrice})
 - bLuna price is also collected, "premium" is a simulation response of 1 minus how many bLuna can be bought for 1 Luna. ![bLunaPremium=1-\frac{bLUNA(TSPool)}{LUNA(TSPool)}](https://latex.codecogs.com/svg.latex?bLunaPremium=1-\frac{bLUNA(TSPool)}{LUNA(TSPool)})  
 

@@ -40,8 +40,7 @@ async function getPriceById(req: Request, res: Response) {
     return res.status(httpStatus).json(jsonResp);
 }
 
-
-const ControllerMethods: any = {
+const ControllerMethods = {
     showAllPrices: getAllPrices,
     getSinglePrice: getPriceById,
 }

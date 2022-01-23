@@ -3,8 +3,8 @@ import {Price} from '../../models/Price';
 import {mirrorObject} from '../../middleware/mirror';
 
 async function AssetChart(req: Request, res: Response) {
-    let assetName: string = req.params.asset;
-    let drawPrice: boolean = req.params.indicator == 'price';
+    const assetName: string = req.params.asset;
+    const drawPrice: boolean = req.params.indicator == 'price';
 
     const assets = mirrorObject.assetSymbols();
 
@@ -31,14 +31,14 @@ async function AssetChart(req: Request, res: Response) {
         stdDev = statQuery ? statQuery[0].stdDev : 0;
     }
 
-    let dataFeed1: { x: Number, y: Number }[] = [];
-    let dataFeed2: { x: Number, y: Number }[] = [];
-    let dataFeedExtremum1: { x: Number, y: Number }[] = [];
-    let dataFeedExtremum2: { x: Number, y: Number }[] = [];
-    let dataFeedExtremum3: { x: Number, y: Number }[] = [];
+    const dataFeed1: { x: number, y: number }[] = [];
+    const dataFeed2: { x: number, y: number }[] = [];
+    const dataFeedExtremum1: { x: number, y: number }[] = [];
+    const dataFeedExtremum2: { x: number, y: number }[] = [];
+    const dataFeedExtremum3: { x: number, y: number }[] = [];
 
     const allDocuments = await Price.find({mAsset: assetName});
-    for (let doc of allDocuments) {
+    for (const doc of allDocuments) {
         if (drawPrice) {
             dataFeed1.push({x: (doc.created_at.valueOf() - baseTime), y: doc.priceUST});
             dataFeed2.push({x: (doc.created_at.valueOf() - baseTime), y: doc.oraclePriceUST});
@@ -54,7 +54,7 @@ async function AssetChart(req: Request, res: Response) {
         }
     }
 
-    let contextData = {
+    const contextData = {
         hostName: req.hostname,
         assets: assets,
         asset: assetName,
@@ -62,10 +62,11 @@ async function AssetChart(req: Request, res: Response) {
         baseTime: baseTime,
         dataColumn1: JSON.stringify(dataFeed1),
         dataColumn2: JSON.stringify(dataFeed2),
-        dataColumnsExtremum1: "",
-        dataColumnsExtremum2: "",
-        dataColumnsExtremum3: ""
-    }
+        dataColumnsExtremum1: '',
+        dataColumnsExtremum2: '',
+        dataColumnsExtremum3: ''
+    };
+
     if (!drawPrice) {
         contextData.dataColumnsExtremum1 = JSON.stringify(dataFeedExtremum1);
         contextData.dataColumnsExtremum2 = JSON.stringify(dataFeedExtremum2);

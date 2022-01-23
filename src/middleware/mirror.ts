@@ -16,8 +16,8 @@ export class MirrorPricesFeed {
     }
 
     public assetSymbols(): Array<string> {
-        let assetArray: string[] = [];
-        for (let key in this.mirror.assets)
+        const assetArray: string[] = [];
+        for (const key in this.mirror.assets)
             if (key != 'MIR')
                 assetArray.push(key);
         assetArray.push(this.uLunabLunaSymbol);
