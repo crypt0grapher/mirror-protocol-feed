@@ -14,8 +14,9 @@ block content
   ul.nav.nav-tabs
     li.nav-item
       a.nav-link.active(aria-current='page') #{asset} Premium
-    li.nav-item
-      a.nav-link(href='/asset/'+asset+'/price') #{asset} Price
+    if (asset!='uLuna-bLuna')
+      li.nav-item
+        a.nav-link(href='/asset/'+asset+'/price') #{asset} Price
   div#chartPremium(style={
       'width': '100%',
       'height': '640px',
