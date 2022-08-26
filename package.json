@@ -50,7 +50,7 @@
     "json2csv": "^5.0.6",
     "mirror.js": "^0.0.1",
     "moment": "^2.29.1",
-    "mongoose": "^6.1.7",
+    "mongoose": "^6.4.6",
     "pug": "^3.0.2",
     "timechart": "^0.5.2"
   },
